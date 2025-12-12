@@ -1,66 +1,63 @@
-/* -------------------------
-   Premium — Modern Clean CSS
-   Keep the HTML structure
-   Background color kept as requested
-   ------------------------- */
+/* ============================
+   Premium Beauty — Responsive / Hero / Spacing CSS
+   Matches the provided HTML
+   ============================ */
+
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
 :root{
-  --bg: #976c43c0;     /* user color preserved */
-  --card-bg: rgba(255,255,255,0.06);
+  --bg: #976c43c0;         /* user requested background */
   --muted: #6b6b6b;
+  --text: #0b0b0b;
+  --card-bg: rgba(255,255,255,0.06);
+  --glass: rgba(255,255,255,0.04);
   --accent: #111;
   --radius: 12px;
   --maxw: 1160px;
   --gutter: 24px;
-  --glass: rgba(255,255,255,0.06);
 }
 
 /* Reset */
-*{box-sizing:border-box; margin:0; padding:0}
+*{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   background: var(--bg);
-  color: #111;
+  color: var(--text);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   line-height:1.5;
   font-size:16px;
 }
 
-/* Container helper */
-.container{
+/* Simple page container helper for center content */
+.page-container{
   width: calc(100% - 40px);
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* ===== Header ===== */
+/* ---------- Header / Nav ---------- */
 header{
   position: sticky;
   top: 0;
-  z-index: 40;
-  backdrop-filter: blur(6px);
+  z-index: 60;
   background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
   border-bottom: 1px solid rgba(0,0,0,0.06);
+  backdrop-filter: blur(6px);
 }
 
-header .container{
+header nav{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px 20px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  padding:18px 0;
+  justify-content:center;
 }
 
-/* Logo placeholder (if you add) */
-.logo{
-  font-weight:700;
-  font-size:1.05rem;
-  letter-spacing:1px;
-}
-
-/* Menu */
 nav ul#menu{
   list-style:none;
   display:flex;
@@ -69,95 +66,95 @@ nav ul#menu{
   justify-content:center;
   padding:0;
   margin:0;
+  flex-wrap:wrap;
 }
 
-nav ul#menu li a{
-  display:block;
+nav ul#menu li.min a{
   text-decoration:none;
   color: var(--accent);
   font-weight:600;
   font-size:0.98rem;
   padding:8px 10px;
-  transition: color .18s ease, transform .12s ease;
   border-radius:8px;
+  transition: transform .14s ease, color .12s ease;
 }
 
-nav ul#menu li a:hover{
+nav ul#menu li.min a:hover{
+  transform: translateY(-3px);
   color: #000;
-  transform: translateY(-2px);
 }
 
-/* ===== HERO ===== */
-.hero_section{
-  min-height: 82vh;
-  display:grid;
-  grid-template-columns: 1fr;
+/* ---------- HERO ---------- */
+#home.hero_section{
+  min-height: 78vh;
+  display:flex;
   align-items:center;
-  padding: 64px 0;
-  position:relative;
+  padding: 54px 0;
   background-image: url('projects.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* use container to control text width */
-.hero_section .container{
+/* inner layout for hero - using page-container */
+#home .page-container{
   display:grid;
-  grid-template-columns: 1fr 460px;
+  grid-template-columns: 1fr 440px;
   gap: 32px;
   align-items:center;
+  width:100%;
 }
 
-/* Left: headline */
-.hero_section h1{
+/* Headline area */
+#home h1{
   font-size: clamp(1.6rem, 3.4vw, 2.6rem);
   font-weight: 300;
-  margin-bottom: 12px;
-  color: #0b0b0b;
+  margin-bottom: 10px;
+  color: var(--text);
 }
 
 .brand{
-  font-size: clamp(2rem, 6vw, 3.2rem);
-  font-weight:800;
+  font-size: clamp(2rem, 5.5vw, 3.2rem);
+  font-weight: 800;
   letter-spacing: 1px;
-  color: #111;
-  margin-bottom: 8px;
+  margin: 6px 0;
+  color: var(--accent);
 }
 
 .slogan{
   font-weight: 300;
   font-style: italic;
   color: var(--muted);
-  display:block;
-  font-size:1rem;
+  display:inline-block;
+  margin-left:8px;
 }
 
+/* hero paragraph */
 .hero_description{
   color: #222;
   max-width: 46ch;
   margin-top: 12px;
   font-size: 1rem;
+  line-height:1.6;
 }
 
-/* Right: optional hero image (if present) */
-.hero_section .hero-image{
-  width:100%;
+/* if user wants a hero image area (right) */
+#home .hero-image {
+  width: 100%;
   height: 360px;
   border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  overflow:hidden;
+  box-shadow: 0 12px 34px rgba(0,0,0,0.18);
   background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
 }
 
-/* ===== PRODUCTS / CATEGORIES ===== */
+/* ---------- PRODUCTS / CATEGORIES ---------- */
 .bestproducts{
   padding: 56px 0;
-  background: transparent;
 }
 
-.bestproducts .container{
-  display:block;
+.bestproducts .page-container{
+  width:100%;
 }
 
 .bestproducts p:first-of-type{
@@ -167,16 +164,16 @@ nav ul#menu li a:hover{
   margin-bottom:18px;
 }
 
-/* grid of category cards */
+/* categories grid */
 .categories-container{
   display:grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  align-items:start;
   margin-top: 18px;
+  align-items: start;
 }
 
-/* single card */
+/* category card */
 .category-card{
   background: var(--card-bg);
   padding: 20px;
@@ -189,11 +186,11 @@ nav ul#menu li a:hover{
   min-height: 320px;
 }
 
-/* Title/subtitle */
+/* title & subtitle */
 .category-card h2{
   font-size:1.25rem;
   margin-bottom:6px;
-  color:#0b0b0b;
+  color:var(--accent);
   font-weight:700;
 }
 
@@ -204,18 +201,18 @@ nav ul#menu li a:hover{
   font-weight:500;
 }
 
-/* images row */
+/* images row centered */
 .category-card ul{
   display:flex;
   gap:12px;
   list-style:none;
   padding:0;
   margin: 8px 0 12px;
-  justify-content:center;    /* center images */
+  justify-content:center;
   align-items:center;
 }
 
-/* image style */
+/* product images */
 .category-card img{
   width: 110px;
   height: 140px;
@@ -230,14 +227,15 @@ nav ul#menu li a:hover{
   box-shadow: 0 18px 40px rgba(0,0,0,0.20);
 }
 
-/* description and button */
+/* card description */
 .category-card p{
-  color: #2a2a2a;
+  color: #222;
   font-size: 0.98rem;
   margin-top: auto;
   line-height:1.45;
 }
 
+/* disabled button (coming soon) */
 .disabled-btn{
   margin-top: 14px;
   padding: 12px 20px;
@@ -250,13 +248,18 @@ nav ul#menu li a:hover{
   opacity:0.95;
 }
 
-/* ===== Beauty is Art ===== */
+/* ---------- Beauty is art ---------- */
 .Beauty_is_art{
   padding: 64px 0;
   background: rgba(141,102,65,0.75);
 }
 
-.Beauty_is_art .container{
+.Beauty_is_art .beautyart_content{
+  flex:1;
+  min-width:260px;
+}
+
+.Beauty_is_art{
   display:flex;
   gap: 28px;
   align-items:center;
@@ -264,22 +267,25 @@ nav ul#menu li a:hover{
   flex-wrap:wrap;
 }
 
-.beautyart_content{flex:1; min-width:260px}
+.beauty-image{flex:1; min-width:260px; display:flex; justify-content:center}
+.beauty-image img{width:100%; max-width:520px; height:auto; border-radius:14px; object-fit:cover; box-shadow: 0 16px 40px rgba(0,0,0,0.15)}
+
 .beautyart_content h2{font-size:2rem; margin-bottom:6px}
 .beautyart_content h3{color:var(--muted); font-weight:600; margin-bottom:12px}
 .beautyart_content p{color:#222; max-width: 46ch; line-height:1.6}
 
-/* image */
-.beauty-image{flex:1; min-width:260px; display:flex; justify-content:center}
-.beauty-image img{width:100%; max-width:520px; height:auto; border-radius:14px; object-fit:cover; box-shadow: 0 16px 40px rgba(0,0,0,0.15)}
-
-/* ===== About ===== */
+/* ---------- About ---------- */
 .about_section{
   padding:64px 0;
   background: rgba(122,88,56,0.7);
 }
 
-.about_section .container{
+.about_section .about_content{
+  flex:1;
+  min-width:260px;
+}
+
+.about_section{
   display:flex;
   gap:26px;
   align-items:center;
@@ -287,15 +293,14 @@ nav ul#menu li a:hover{
   flex-wrap:wrap;
 }
 
-.about_content{flex:1; min-width:260px}
 .about_content h2{font-size:1.9rem; margin-bottom:8px}
 .about_content p{color:#222; line-height:1.6; max-width:52ch}
 
-/* crown image */
+/* crown img */
 .crown_img{flex:1; min-width:220px; display:flex; justify-content:center}
 .crown_img img{width:80%; max-width:300px; object-fit:contain; filter: drop-shadow(0 8px 22px rgba(0,0,0,0.16))}
 
-/* ===== Contact ===== */
+/* ---------- Contact ---------- */
 .contact_section{
   padding:64px 0;
   background: transparent;
@@ -320,21 +325,13 @@ nav ul#menu li a:hover{
   text-align:left;
 }
 
-.contact_card h3{margin-bottom:8px}
+.contact_card h3{margin-bottom:8px; display:flex; align-items:center; gap:10px}
 .contact_card a, .contact_card p{color:#111; font-weight:600; text-decoration:none}
 
-.contact_card h3 i {
-    margin-right: 8px;
-    color: #111;
-    font-size: 1.2rem;
-    opacity: 0.85;
-}
+/* email icon spacing */
+.contact_card i{color:var(--accent); font-size:1.1rem}
 
-.contact_card h3 i:hover {
-    opacity: 1;
-}
-
-/* footer */
+/* ---------- Footer ---------- */
 footer{
   padding:28px 0;
   border-top:1px solid rgba(0,0,0,0.06);
@@ -345,38 +342,60 @@ footer{
 
 footer a{color:#111; text-decoration:none; margin:0 8px; font-weight:600}
 
-/* ===== Utilities & responsive ===== */
+/* ---------- Utilities & Responsive Breakpoints ---------- */
+
+/* big screens */
+@media (max-width: 1180px){
+  .page-container{width: calc(100% - 48px)}
+  #home .page-container{grid-template-columns: 1fr 380px;}
+}
+
+/* tablet */
 @media (max-width: 980px){
-  .hero_section .container{
-    grid-template-columns: 1fr;
-  }
-
-  nav ul#menu{ gap:16px; }
+  #home .page-container{grid-template-columns: 1fr;}
+  nav ul#menu{ gap:18px; }
+  .categories-container{grid-template-columns: 1fr 1fr;}
 }
 
+/* mobile */
 @media (max-width: 768px){
-  header .container{padding:12px 10px}
+  header nav{padding:10px 12px}
   nav ul#menu{
-    display:flex;
     gap:12px;
-    flex-wrap:wrap;
     justify-content:center;
+    flex-wrap:wrap;
   }
 
-  .categories-container{ grid-template-columns: 1fr; }
-
-  .Beauty_is_art .container, .about_section .container{
-    flex-direction:column;
-    text-align:center;
+  /* hero adjustments */
+  #home.hero_section{
+    padding: 36px 0;
+    background-position: top;
   }
+  #home h1{font-size:1.6rem; text-align:center; margin-left:0}
+  .brand{font-size:2rem; text-align:center}
+  .hero_description{ text-align:center; margin:12px auto 0; max-width: 90% }
 
-  .crown_img img{width:60%}
-  .hero_section{ padding:40px 0}
-  .hero_description{ text-align:center; margin:12px 0 0}
+  /* categories -> single column */
+  .categories-container{ grid-template-columns: 1fr; padding: 0 6px; }
+
+  /* category card */
+  .category-card{ min-height: auto; padding:18px; }
+
+  /* Beauty is Art -> stacked */
+  .Beauty_is_art{ padding: 40px 12px; flex-direction:column; text-align:center }
+  .beauty-image img{ max-width: 86%; }
+
+  /* About -> stacked */
+  .about_section{ padding: 40px 12px; flex-direction:column; text-align:center }
+  .crown_img img{ width:70% }
+
+  /* Contact */
+  .contact_cards{ grid-template-columns: 1fr; }
 }
 
+/* small phones */
 @media (max-width: 420px){
-  .brand{ font-size:2rem }
+  .brand{font-size:1.8rem}
   .category-card img{ width:98px; height:128px }
-  .crown_img img{ width:70% }
+  .contact_section h2{ font-size:1.2rem }
 }
