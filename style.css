@@ -65,13 +65,69 @@
 
 
 /* HERO */
-.hero_section{min-height:78vh; display:flex; align-items:center; justify-content:center; background:url('projects.jpg') center/cover no-repeat; text-align:center; padding:0 20px; color:#111;
+.hero_section {
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('projects.jpg') center/cover no-repeat;
+  text-align: center;
+  padding: 0 20px;
+  color: #fff;
+  position: relative;
 }
-.hero_section h1{font-size:clamp(2rem,4vw,3rem); margin-bottom:10px; font-weight:700;}
-.hero_slogan{font-style:italic; color:#555; display:block; margin-bottom:10px;}
-.hero_description{font-size:1rem; max-width:500px; margin:0 auto 20px}
-.hero_btn{display:inline-block; background:#b6864f; color:#fff; padding:12px 25px; border-radius:10px; text-decoration:none; font-weight:600; transition:.3s;}
-.hero_btn:hover{background:#9a6234;}
+
+/* OVERLAY */
+.hero_section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55); /* controla a força do filtro */
+  z-index: 1;
+}
+
+/* CONTEÚDO ACIMA DO OVERLAY */
+.hero_content {
+  position: relative;
+  z-index: 2;
+}
+
+/* TEXTOS */
+.hero_section h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.hero_slogan {
+  font-style: italic;
+  color: #ddd;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.hero_description {
+  font-size: 1rem;
+  max-width: 500px;
+  margin: 0 auto 20px;
+  color: #f1f1f1;
+}
+
+/* BOTÃO */
+.hero_btn {
+  display: inline-block;
+  background: #b6864f;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.hero_btn:hover {
+  background: #9a6234;
+}
 
 
 
