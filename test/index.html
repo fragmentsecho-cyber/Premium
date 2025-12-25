@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Navbar Flex Test</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body { font-family: Arial, sans-serif; background:#f5f5f5; }
+
+    /* NAVBAR (container pai) */
+    .navbar {
+      display: flex;                /* ativa Flexbox */
+      flex-direction: row;          /* itens em linha */
+      align-items: center;          /* centraliza verticalmente */
+      justify-content: space-between; /* logo à esquerda, menu à direita */
+      padding: 12px 24px;
+      background: #111;
+      color: #fff;
+    }
+
+    .logo { font-weight: 700; font-size: 20px; }
+
+    /* MENU (filhos do container) */
+    .menu {
+      display: flex;    /* coloca os links lado a lado */
+      gap: 20px;        /* espaço entre os links */
+      align-items: center;
+      flex-wrap: nowrap; /* garante que não quebrem para a próxima linha */
+      white-space: nowrap;/* evita quebra de palavras nos links */
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      padding: 6px 8px;
+      display: inline-block; /* assegura comportamento previsível */
+    }
+    .menu a:hover { color: orange; }
+
+    /* botão hamburger escondido em telas grandes */
+    .menu-toggle {
+      display: none;
+      background: none;
+      color: white;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* ----- responsive: telas pequenas ----- */
+    @media (max-width: 700px) {
+      .menu { display: none; }           /* esconde menu horizontal */
+      .menu-toggle { display: block; }   /* mostra botão ham */
+      /* menu mobile (aparecerá quando .show for adicionado) */
+      .menu.mobile {
+        display: flex;
+        position: absolute;
+        top: 60px;
+        right: 16px;
+        flex-direction: column;
+        gap: 10px;
+        background: #111;
+        padding: 12px;
+        border-radius: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">PierceDev</div>
+
+    <button class="menu-toggle" aria-label="open menu">☰</button>
+
+    <!-- note: nav tem class="menu" -->
+    <nav class="menu" id="mainMenu">
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main style="padding:40px;">
+    <h1>Test page</h1>
+    <p>Resize the window to see responsive behavior.</p>
+  </main>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const menu  = document.querySelector('#mainMenu');
+
+    toggle.addEventListener('click', () => {
+      // alterna entre esconder e mostrar a versão mobile do menu
+      if (menu.classList.contains('mobile')) {
+        menu.classList.remove('mobile');
+      } else {
+        menu.classList.add('mobile');
+      }
+    });
+  </script>
+
+</body>
+</html>

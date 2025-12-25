@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Premium Beauty: Discover curated skincare, makeup, haircare, and beauty tools. Elegant, professional, and responsive design.">
+  <link rel="shortcut icon" href="favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Premium Beauty - Skincare, Makeup & Haircare</title>
+</head>
+<body>
+  <!-- HEADER -->
+   <header class="navbar">
+    <div class="logo">Premium</div>
+
+    <button class="menu-toggle" aria-label="open menu">☰</button>
+
+    <!-- note: nav tem class="menu" -->
+    <nav class="menu" id="mainMenu">
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="home" class="hero_section">
+      <div class="hero_content page-container">
+        <h1>Premium Beauty</h1>
+        <p class="hero_slogan">You're</p>
+        <p class="hero_description">
+          Discover elegance and quality with the best skincare, makeup, haircare, and beauty tools curated for your premium routine.
+        </p>
+        <a href="#products" class="hero_btn">See Products</a>
+      </div>
+    </section>
+
+    <!-- PRODUCTS / CATEGORIES -->
+    <section id="products" class="products_section page-container">
+      <h2>Our Categories</h2>
+      <p>Explore the best products for your beauty routine.</p>
+      <div class="categories_container">
+        <!-- Skincare -->
+        <div class="category_card">
+          <h3>Skincare</h3>
+          <ul class="product-carousel">
+            <li><img src="Skincare/ja2.jpg" alt="Skincare product 1"></li>
+            <li><img src="Skincare/ja3.jpg" alt="Skincare product 2"></li>
+            <li><img src="Skincare/ja4.jpg" alt="Skincare product 3"></li>
+           
+          </ul>
+          <p>Hydrating and brightening essentials. Coming soon full catalog!</p>
+        </div>
+        <!-- Makeup -->
+        <div class="category_card">
+          <h3>Makeup</h3>
+          <ul class="product-carousel">
+            <li><img src="makeup/fe2.jpg" alt="Makeup product 1"></li>
+            <li><img src="makeup/fe3.jpg" alt="Makeup product 2"></li>
+            <li><img src="makeup/fe4.jpg" alt="Makeup product 3"></li>
+           
+          </ul>
+          <p>Elegant products for your daily style. Coming soon full catalog!</p>
+        </div>
+        <!-- Haircare -->
+        <div class="category_card">
+          <h3>Haircare</h3>
+          <ul class="product-carousel">
+            <li><img src="haircare/te1.jpg" alt="Haircare product 1"></li>
+            <li><img src="haircare/te2.jpg" alt="Haircare product 2"></li>
+            <li><img src="haircare/te3.jpg" alt="Haircare product 3"></li>
+           
+          </ul>
+          <p>Healthy, shiny hair essentials. Coming soon full catalog!</p>
+        </div>
+        <!-- Beauty Tools -->
+        <div class="category_card">
+          <h3>Beauty Tools</h3>
+          <ul class="product-carousel">
+            <li><img src="beauty tools/to1.jpg" alt="Beauty tool 1"></li>
+            <li><img src="beauty tools/to2.jpg" alt="Beauty tool 2"></li>
+            <li><img src="beauty tools/to3.jpg" alt="Beauty tool 3"></li>
+            
+          
+          </ul>
+          <p>Premium tools designed for flawless results. Coming soon full catalog!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEAUTY IS ART -->
+    <section class="beauty_art_section page-container">
+      <div class="art_content">
+        <h2>Beauty is Art</h2>
+        <p>Every detail tells a story. Premium celebrates beauty as a form of art where elegance meets creativity.</p>
+      </div>
+      <div class="art_image">
+        <img src="personagem-de-estilo-anime-com-agua.jpg" alt="Artistic beauty illustration">
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about_section page-container">
+      <div class="about_content">
+        <h2>About Premium</h2>
+        <p>
+          Premium is a curated beauty catalog designed to help you discover high-quality skincare, makeup, haircare, and beauty tools online.
+          Our mission is simple: deliver a premium experience through clean design and trusted recommendations.
+        </p>
+        <p><strong>Beauty made simple. Beauty made premium.</strong></p>
+      </div>
+      <div class="crown_img">
+        <img src="crown queen.png" alt="Golden crown">
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact_section page-container">
+      <h2>Contact Us</h2>
+      <p class="contact_intro">We are here to help you with questions, recommendations, or partnerships. Reach us through our official channels:</p>
+      <div class="contact_cards">
+        <div class="contact_card"><i class="fa-brands fa-linkedin"></i> <a href="#">@PremiumBeauty</a></div>
+        <div class="contact_card"><i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/pre_miumbty?igsh=MTkzZWFvMTQ4cGplYg==">@PremiumBeauty</a></div>
+        <div class="contact_card"><i class="fa-brands fa-whatsapp"></i> +258 860 495 402</div>
+        <div class="contact_card"><i class="fa-regular fa-envelope"></i> premiumbeauty967@gmail.com</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="page-container">
+    <p>&copy; 2025 Premium — Designed by Pierce Caoza</p>
+    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Use</a>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const menu  = document.querySelector('#mainMenu');
+
+    toggle.addEventListener('click', () => {
+      // alterna entre esconder e mostrar a versão mobile do menu
+      if (menu.classList.contains('mobile')) {
+        menu.classList.remove('mobile');
+      } else {
+        menu.classList.add('mobile');
+      }
+    });
+  </script>
+</body>
+</html>

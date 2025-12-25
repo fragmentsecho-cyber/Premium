@@ -1,0 +1,62 @@
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body { font-family: Arial, sans-serif; background:#f5f5f5; }
+
+    /* NAVBAR (container pai) */
+    .navbar {
+      display: flex;                /* ativa Flexbox */
+      flex-direction: row;          /* itens em linha */
+      align-items: center;          /* centraliza verticalmente */
+      justify-content: space-between; /* logo à esquerda, menu à direita */
+      padding: 12px 24px;
+      background: #111;
+      color: #fff;
+    }
+
+    .logo { font-weight: 700; font-size: 20px; }
+
+    /* MENU (filhos do container) */
+    .menu {
+      display: flex;    /* coloca os links lado a lado */
+      gap: 20px;        /* espaço entre os links */
+      align-items: center;
+      flex-wrap: nowrap; /* garante que não quebrem para a próxima linha */
+      white-space: nowrap;/* evita quebra de palavras nos links */
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      padding: 6px 8px;
+      display: inline-block; /* assegura comportamento previsível */
+    }
+    .menu a:hover { color: orange; }
+
+    /* botão hamburger escondido em telas grandes */
+    .menu-toggle {
+      display: none;
+      background: none;
+      color: white;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* ----- responsive: telas pequenas ----- */
+    @media (max-width: 700px) {
+      .menu { display: none; }           /* esconde menu horizontal */
+      .menu-toggle { display: block; }   /* mostra botão ham */
+      /* menu mobile (aparecerá quando .show for adicionado) */
+      .menu.mobile {
+        display: flex;
+        position: absolute;
+        top: 60px;
+        right: 16px;
+        flex-direction: column;
+        gap: 10px;
+        background: #111;
+        padding: 12px;
+        border-radius: 8px;
+      }
+    }

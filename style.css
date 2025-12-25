@@ -1,0 +1,224 @@
+
+
+
+* { box-sizing:border-box; margin: 0; padding: 0; }
+
+    body { font-family: Arial, sans-serif; background:#f5f5f5; }
+
+    /* NAVBAR (container pai) */
+    .navbar {
+      display: flex;                /* ativa Flexbox */
+      flex-direction: row;          /* itens em linha */
+      align-items: center;          /* centraliza verticalmente */
+      justify-content: space-between; /* logo à esquerda, menu à direita */
+      padding: 12px 24px;
+      background: #111;
+      color: #fff;
+    }
+
+    .logo { font-weight: 700; font-size: 20px; }
+
+    /* MENU (filhos do container) */
+    .menu {
+      display: flex;    /* coloca os links lado a lado */
+      gap: 20px;        /* espaço entre os links */
+      align-items: center;
+      flex-wrap: nowrap; /* garante que não quebrem para a próxima linha */
+      white-space: nowrap;/* evita quebra de palavras nos links */
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      padding: 6px 8px;
+      display: inline-block; /* assegura comportamento previsível */
+    }
+    .menu a:hover { color:#b6864f ; }
+
+    /* botão hamburger escondido em telas grandes */
+    .menu-toggle {
+      display: none;
+      background: none;
+      color: white;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* ----- responsive: telas pequenas ----- */
+    @media (max-width: 700px) {
+      .menu { display: none; }           /* esconde menu horizontal */
+      .menu-toggle { display: block; }   /* mostra botão ham */
+      /* menu mobile (aparecerá quando .show for adicionado) */
+      .menu.mobile {
+        display: flex;
+        position: absolute;
+        top: 60px;
+        right: 16px;
+        flex-direction: column;
+        gap: 10px;
+        background: #111;
+        padding: 12px;
+        border-radius: 8px;
+      }
+    }
+
+
+/* HERO */
+.hero_section{min-height:78vh; display:flex; align-items:center; justify-content:center; background:url('projects.jpg') center/cover no-repeat; text-align:center; padding:0 20px; color:#111;
+}
+.hero_section h1{font-size:clamp(2rem,4vw,3rem); margin-bottom:10px; font-weight:700;}
+.hero_slogan{font-style:italic; color:#555; display:block; margin-bottom:10px;}
+.hero_description{font-size:1rem; max-width:500px; margin:0 auto 20px}
+.hero_btn{display:inline-block; background:#b6864f; color:#fff; padding:12px 25px; border-radius:10px; text-decoration:none; font-weight:600; transition:.3s;}
+.hero_btn:hover{background:#9a6234;}
+
+
+
+
+
+    /* ================= PRODUCTS SECTION ================= */
+
+.products_section{
+  padding: 60px 20px;
+}
+
+.products_section h2{
+  text-align: center;
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  margin-bottom: 6px;
+}
+
+.products_section > p{
+  text-align: center;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+/* GRID DE CATEGORIAS */
+.categories_container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+/* CARD DA CATEGORIA */
+.category_card{
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  text-align: center;
+  overflow: hidden;
+}
+
+.category_card h3{
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* ================= CAROUSEL ================= */
+
+.product-carousel{
+  display: flex;
+  gap: 16px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  padding-bottom: 12px 16px;
+  margin: 0;
+  scroll-padding-left: 16px;
+  margin-bottom: 14px;
+
+  list-style: none;
+}
+
+/* ITEM */
+.product-carousel li{
+  flex: 0 0 auto;
+  width: 160px;
+  scroll-snap-align: start;
+}
+
+/* IMAGEM */
+.product-carousel img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.product-carousel img:hover{
+  transform: scale(1.05);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.22);
+}
+
+/* SCROLLBAR (opcional, discreto) */
+.product-carousel::-webkit-scrollbar{
+  height: 6px;
+}
+.product-carousel::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,0.25);
+  border-radius: 10px;
+}
+
+/* TEXTO */
+.category_card p{
+  font-size: .95rem;
+  color: #555;
+}
+
+/* ================= DESKTOP AJUSTE ================= */
+
+@media (min-width: 900px){
+  .product-carousel{
+    justify-content: center;
+    overflow-x: hidden;
+  }
+}
+
+
+/* BEAUTY IS ART */
+.beauty_art_section{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px; padding:60px 0; background:rgba(200,170,140,0.2);}
+.art_content{flex:1; min-width:280px;}
+.art_image{flex:1; min-width:280px;}
+.art_image img{width:100%; border-radius:12px;}
+
+/* ABOUT */
+.about_section{display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px; padding:60px 0; background:rgba(180,140,100,0.15);}
+.about_content{flex:1; min-width:280px;}
+.crown_img{flex:1; min-width:250px; display:flex; justify-content:center;}
+.crown_img img{width:80%; max-width:220px;}
+
+
+/* CONTACT */
+.contact_section{padding:60px 0;}
+.contact_intro{text-align:center; margin-bottom:20px; color:#555;}
+.contact_cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px;}
+.contact_card{background:rgba(255,255,255,0.07); padding:16px; border-radius:10px; text-align:center;}
+.contact_card a{color:#111; text-decoration:none; font-weight:600;}
+.contact_card i{margin-right:6px;}
+
+/* FOOTER */
+footer{padding:28px 20px; text-align:center; margin-top:20px; border-top:1px solid rgba(0,0,0,0.06);
+  color:#fff; background:#111;}
+footer a{color:#fff; margin:0 6px; text-decoration:none; font-weight:600; background:}
+
+/* ----------------- RESPONSIVE ----------------- */
+@media(max-width:900px){
+  .beauty_art_section,.about_section{flex-direction:column;text-align:center;}
+  .art_image img,.crown_img img{max-width:80%;}
+}
+@media(max-width:600px){
+  .hero_section h1{font-size:1.8rem;}
+  .hero_slogan{font-size:1.1rem;}
+}
+
+
